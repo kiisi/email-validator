@@ -107,7 +107,7 @@ export default function Home() {
               filename={"validated-email-file.csv"}
               className="max-w-xl w-full mx-auto grid place-items-center px-[24px] flex items-center rounded-[6px] text-[15px] bg-[#135EF2] text-white h-[48px]"
               data={results}>
-              Download me
+              Download File
             </CSVLink>
           )
         }
