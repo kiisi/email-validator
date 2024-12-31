@@ -3,6 +3,8 @@ import { cn } from "@/utils/cn";
 import { sourGummy } from "@/utils/font";
 import { Upload } from "lucide-react";
 import { useCallback, useState } from "react";
+import { CSVLink } from "react-csv";
+
 
 export default function Home() {
 
@@ -36,7 +38,8 @@ export default function Home() {
         throw new Error(data.error);
       }
 
-      setResults(data);
+      console.log(data)
+      setResults(data.validEmailsList);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
     } finally {
@@ -95,7 +98,18 @@ export default function Home() {
             Accepts .txt or .csv file
           </p>
         </div>
-
+      </div>
+      <div className="pt-6">
+        {
+          results && (
+            <CSVLink
+              enclosingCharacter={``}
+              className="max-w-xl w-full mx-auto grid place-items-center px-[24px] flex items-center rounded-[6px] text-[15px] bg-[#135EF2] text-white h-[48px]"
+              data={results}>
+              Download me
+            </CSVLink>
+          )
+        }
       </div>
     </div>
   );
