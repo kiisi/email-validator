@@ -14,6 +14,8 @@ export default function Home() {
   const [results, setResults] = useState(null);
   const [error, setError] = useState<string | null>(null);
 
+  console.log(isUploading)
+  console.log(error)
   const processFile = useCallback(async (file: File) => {
     if (file.size > maxFileSize) {
       setError(`File size exceeds ${maxFileSize / 1024 / 1024}MB limit`);
